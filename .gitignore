@@ -1,0 +1,5 @@
+*.o
+Graphicus
+vgcore*
+.gdb*
+
