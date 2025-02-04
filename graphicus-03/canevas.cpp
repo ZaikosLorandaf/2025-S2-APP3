@@ -4,7 +4,7 @@
 #include <csignal>
 
 Canevas::Canevas(){
-  vector = new MyVector();
+  vector = new MyVector<Layer>;
 }
 Canevas::~Canevas() {
   delete vector;

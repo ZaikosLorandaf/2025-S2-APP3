@@ -44,7 +44,7 @@ class Canevas
     void display(ostream & s);
 
   private:
-    MyVector *vector;
+    MyVector<Layer> *vector;
     int activeLayer{-1};
 };
 
