@@ -1,4 +1,9 @@
 *.o
+*.obj
+*.ilk
+*.log
+*.pdb
+*.tlog
 *.exe
 *.gdb*
 *.vs
