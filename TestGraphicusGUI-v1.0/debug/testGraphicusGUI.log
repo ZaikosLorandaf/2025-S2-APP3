@@ -1,0 +1,6 @@
+﻿   Qt/MSBuild: 3.3.1.1
+  Reading Qt configuration (C:/Qt/6.8.2/msvc2022_64/bin/qmake)
+   Qt: 6.8.2
+  monInterface.cpp
+  testGraphicusGUI.cpp
+  testGraphicusGUI.vcxproj -> C:\Users\sgoss\source\repos\2025-S2-APP3\TestGraphicusGUI-v1.0\debug\testGraphicusGUI.exe
