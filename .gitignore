@@ -1,5 +1,13 @@
 *.o
+*.exe
+*.gdb*
+*.vs
+*.vcxproj*
+*.filters
+*.user
+*.sln
+*.qtvscr
+*debug
+*release
 Graphicus
 vgcore*
-.gdb*
-*.vs
