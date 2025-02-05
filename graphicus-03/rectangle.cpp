@@ -1,5 +1,4 @@
 #include "rectangle.h"
-#include "forme.h"
 
 Rectangle::Rectangle(){
   setLength(1);

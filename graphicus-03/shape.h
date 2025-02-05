@@ -1,8 +1,8 @@
-#ifndef FORME_H
-#define FORME_H
+#ifndef __SHAPE_H__
+#define __SHAPE_H__
 
-#include <iostream>
 #include "coordonnee.h"
+#include <iostream>
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 #include "tests.h"
 #include "canevas.h"
-#include "carre.h"
-#include "cercle.h"
+#include "square.h"
+#include "circle.h"
 #include "rectangle.h"
 #include <cassert>
 

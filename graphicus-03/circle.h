@@ -1,7 +1,7 @@
-#ifndef __CERCLE_H__
-#define __CERCLE_H__
+#ifndef __CIRCLE_H__
+#define __CIRCLE_H__
 
-#include "forme.h"
+#include "shape.h"
 
 class Circle: public Shape {
   public:

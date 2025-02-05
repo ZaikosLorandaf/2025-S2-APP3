@@ -2,7 +2,7 @@
 #define __carre_H__
 
 #include "coordonnee.h"
-#include "forme.h"
+#include "shape.h"
 #include "rectangle.h"
 
 class Square: public Rectangle {

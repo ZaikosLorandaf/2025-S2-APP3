@@ -13,9 +13,9 @@
 #define CANEVAS_H
 
 #include <iostream>
-#include "forme.h"
-#include "couche.h"
-#include "vecteur.h"
+#include "shape.h"
+#include "layer.h"
+#include "vector.h"
 
 #define NO_LAYER_ACTIVE -1
 
@@ -44,8 +44,8 @@ class Canevas
     void display(ostream & s);
 
   private:
-    MyVector<Layer> *vector;
-    int activeLayer{-1};
+    Vector<Layer> layers;
+    int activeLayer;
 };
 
 #endif

@@ -11,11 +11,11 @@
 #define TESTS_H
 
 #include <iostream>
-#include "forme.h"
+#include "shape.h"
 #include "canevas.h"
 #include "rectangle.h"
-#include "carre.h"
-#include "cercle.h"
+#include "square.h"
+#include "circle.h"
 
 class Tests
 {

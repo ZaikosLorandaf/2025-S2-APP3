@@ -1,5 +1,5 @@
 CC = g++
-SRC = canevas.cpp couche.cpp forme.cpp graphicus-03.cpp tests.cpp rectangle.cpp carre.cpp cercle.cpp
+SRC = canevas.cpp layer.cpp shape.cpp graphicus-03.cpp tests.cpp rectangle.cpp square.cpp circle.cpp
 OBJ = ${SRC:.cpp=.o}
 # CFLAGS = -Wall -Os -g -march=native
 CFLAGS = -Wall -g
