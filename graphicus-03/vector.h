@@ -17,16 +17,11 @@ class Vector {
       vectorItem = new T[capacity];
     }
 
-    /*Vector(int cap) : quantity{0} {*/
-    /*  vectorItem = new T[cap];*/
-    /*}*/
-
-
     virtual ~Vector() {
       delete[] vectorItem;
     }
 
-    Vector(const Vector<T>& copy): capacity(copy.capacity), quantity(copy.quantity) {
+    Vector(const Vector<T>& copy): capacity{copy.capacity}, quantity{copy.quantity} {
       vectorItem = new T[capacity];
       for (int i = 0; i < quantity; i++)
         vectorItem[i] = copy.vectorItem[i];
@@ -45,13 +40,16 @@ class Vector {
     }
 
     void increaseSize() {
-      capacity *= 2;
+      /*T newTemp {vectorItem};*/
+      /*delete[] vectorItem;*/
+      /*vectorItem = newTemp;*/
+
       T* newTemp = new T[capacity];
       for (int i = 0; i < quantity; i++)
         newTemp[i] = vectorItem[i];
-
       delete[] vectorItem;
       vectorItem = newTemp;
+
     }
 
     bool emptyVector() {
