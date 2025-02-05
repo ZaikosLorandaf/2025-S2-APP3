@@ -24,8 +24,8 @@ class Layer {
     bool reset();
   private:
     Vector<Shape*> shapes;
-    int sizeIndex{-1};
-    int state{STATE_INIT};
+    int sizeIndex;
+    int state;
 };
 
 #endif

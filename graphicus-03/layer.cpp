@@ -1,6 +1,6 @@
 #include "layer.h"
 
-Layer::Layer() {}
+Layer::Layer(): sizeIndex{-1}, state{STATE_INIT} {}
 
 Layer::~Layer() {}
 
