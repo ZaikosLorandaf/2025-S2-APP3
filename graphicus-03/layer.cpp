@@ -9,7 +9,7 @@ int Layer::getLayerState() {
 }
 
 bool Layer::addShape(Shape* f) {
-  if (shapes.getCurrentSize() >= shapes.getCap())
+  if (shapes.getCurrentSize() > shapes.getCap())
     return false;
   shapes.addItem(f);
   size++;
@@ -25,7 +25,7 @@ void Layer::removeShape(int index) {
 
 double Layer::getArea() {
   double sum{0};
-  for (int i = 0; i < shapes.getCurrentSize(); i++)
+  for (int i = 0; i < size; i++)
     sum += shapes[i]->area();
   return sum;
 }

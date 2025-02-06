@@ -71,7 +71,7 @@ bool Canevas::removeShape(int index) {
 double Canevas::area() {
   int areaSum{0};
   for (int i = 0; i < layers.getCurrentSize(); i++)
-    areaSum += layers.getItem(i).getArea();
+    areaSum += layers[i].getArea();
   return areaSum;
 }
 

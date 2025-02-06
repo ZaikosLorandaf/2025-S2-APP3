@@ -26,9 +26,10 @@ class Vector {
         vectorItem[i] = copy.vectorItem[i];
     }
 
-    T& operator[] (int index) {
-      return getItem(index);
-    }
+    T& operator[] (int index) { return getItem(index); }
+
+    T operator+= (const T &c) { return addItem(c); }
+
 
     bool addItem(const T &c) {
       if (quantity == capacity)
@@ -39,15 +40,16 @@ class Vector {
     }
 
     void increaseSize() {
+      capacity *= 2;
       T* newTemp = new T[capacity];
       for (int i = 0; i < quantity; i++)
         newTemp[i] = vectorItem[i];
-      delete[] vectorItem;
+      /*delete[] vectorItem;*/
       vectorItem = newTemp;
     }
 
     bool emptyVector() {
-      delete[] vectorItem;
+      /*delete[] vectorItem;*/
       capacity = INIT_VEC_SIZE;
       quantity = 0;
       vectorItem = new T[capacity];
@@ -55,15 +57,17 @@ class Vector {
     }
 
     T removeItem(int index) {
-      if (index < 0 || index > quantity)
+      if (index < 0 || index >= quantity)
         return T();
       T item = vectorItem[index];
       if (index == quantity-1) {
+        vectorItem[index].~T();
         vectorItem[index] = T();
         return item;
       }
       for (int i = index; i < quantity; i++)
         vectorItem[i] = vectorItem[i+1];
+      vectorItem[quantity].~T();
       vectorItem[quantity] = T();
       quantity--;
       return item;
