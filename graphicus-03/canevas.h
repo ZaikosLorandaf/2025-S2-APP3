@@ -30,6 +30,9 @@ class Canevas
     bool addLayerCan();
     bool removeLayerCan(int index);
 
+    void nextLayer();
+    void prevLayer();
+
     bool reset();
     bool resetLayer(int index);
 
@@ -45,7 +48,7 @@ class Canevas
 
   private:
     Vector<Layer> layers;
-    int activeLayer;
+    /*int activeLayer;*/
 };
 
 #endif

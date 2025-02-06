@@ -14,8 +14,13 @@ int main() {
 
 
   Tests tests;
-  tests.tests_application_cas_01();
+
+  /*tests.tests_application();*/
+
+  /*tests.tests_application_cas_01();*/
   /*tests.tests_application_cas_02();*/
+  tests.tests_application_cas_03();
+
   return 0;
 }
 

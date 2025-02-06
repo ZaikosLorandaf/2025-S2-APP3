@@ -10,14 +10,21 @@ class Vector {
   private:
     int capacity{INIT_VEC_SIZE};
     int quantity{0};
+    int activeIndex{-1};
 
   public:
+    T* vectorItem;
+    // File Read
+    /*friend std::istream& operator>>(std::istream& flux, Vector<T>& vect) {}*/
+    // File Write
+    /*friend std::ostream& operator<<(std::ostream& flux, Vector<T>& vect) {}*/
+
     Vector() {
       vectorItem = new T[capacity];
     }
 
     virtual ~Vector() {
-      delete[] vectorItem;
+      /*delete vectorItem;*/
     }
 
     Vector(const Vector<T>& copy): capacity{copy.capacity}, quantity{copy.quantity} {
@@ -28,16 +35,36 @@ class Vector {
 
     T& operator[] (int index) { return getItem(index); }
 
-    T operator+= (const T &c) { return addItem(c); }
+    void operator++ () {
+      if (activeIndex == quantity-1)
+        return;
+      activeIndex++;
+    }
 
+    void operator-- () {
+      if (activeIndex == 0)
+        return;
+      activeIndex--;
+    }
 
-    bool addItem(const T &c) {
+    //TODO
+    /*void operator<< () {}*/
+    /*void operator>> () {}*/
+
+    void operator+= (const T &c) {
       if (quantity == capacity)
         increaseSize();
       vectorItem[quantity] = c;
       quantity++;
-      return true;
     }
+
+    /*bool addItem(const T &c) {*/
+    /*  if (quantity == capacity)*/
+    /*    increaseSize();*/
+    /*  vectorItem[quantity] = c;*/
+    /*  quantity++;*/
+    /*  return true;*/
+    /*}*/
 
     void increaseSize() {
       capacity *= 2;
@@ -50,27 +77,25 @@ class Vector {
 
     bool emptyVector() {
       /*delete[] vectorItem;*/
+      vectorItem = NULL;
       capacity = INIT_VEC_SIZE;
       quantity = 0;
       vectorItem = new T[capacity];
       return true;
     }
 
-    T removeItem(int index) {
+    void removeItem(int index) {
       if (index < 0 || index >= quantity)
-        return T();
-      T item = vectorItem[index];
+        throw std::out_of_range("Index out of range");
       if (index == quantity-1) {
         vectorItem[index].~T();
         vectorItem[index] = T();
-        return item;
       }
       for (int i = index; i < quantity; i++)
         vectorItem[i] = vectorItem[i+1];
       vectorItem[quantity].~T();
       vectorItem[quantity] = T();
       quantity--;
-      return item;
     }
 
     T& getItem(int index) {
@@ -79,9 +104,14 @@ class Vector {
     return vectorItem[index];
     }
 
+    T& getItem() { return vectorItem[activeIndex]; }
+
+
+    void setActiveItem(int i) { activeIndex = i; }
+    int getActiveIndex() { return activeIndex; }
+
     int getCap() { return capacity; }
-    int getCurrentSize() { return quantity; }
-    T* vectorItem;
+    int getQuantity() { return quantity; }
 };
 
 #endif

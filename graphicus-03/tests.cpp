@@ -22,6 +22,7 @@ void Tests::tests_application()
   // Fait tous les tests applicatifs
   tests_application_cas_01();
   tests_application_cas_02();
+  tests_application_cas_03();
 }
 
 void Tests::tests_application_cas_01()
@@ -245,6 +246,21 @@ void Tests::tests_application_cas_02() {
   c->activateLayer(6);
   c->addShape(new Circle(0,1,5));
   c->addShape(new Square(1,2,6));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
   c->addShape(new Rectangle(2,3,4,9));
   c->addShape(new Circle(0,1,5));
   c->addShape(new Square(1,2,6));
@@ -254,9 +270,121 @@ void Tests::tests_application_cas_02() {
   c->addShape(new Circle(0,1,5));
   c->addShape(new Square(1,2,6));
   c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+
 
 
   c->display(cout);
   std::cout << "L'aire du canevas est: "
     << c->area() << std::endl;
+
+  c->removeLayerCan(6);
+
+  c->display(cout);
+  std::cout << "L'aire du canevas est: "
+    << c->area() << std::endl;
+
+  c->reset();
+  c->display(cout);
+  std::cout << "L'aire du canevas est: "
+    << c->area() << std::endl;
+
+  delete c;
+}
+
+
+
+void Tests::tests_application_cas_03() {
+  Canevas *c = new Canevas();
+
+  c->display(cout);
+  std::cout << "L'aire du canevas est: "
+    << c->area() << std::endl;
+
+  c->addLayerCan();
+  c->addLayerCan();
+  c->addLayerCan();
+  c->addLayerCan();
+
+
+  c->activateLayer(2);
+  c->display(cout);
+  std::cout << "\n\nNew something\n\n";
+  c->nextLayer();
+  c->nextLayer();
+  c->display(cout);
+
+
+  std::cout << "\n\nNew something 2\n\n";
+  c->activateLayer(2);
+  c->prevLayer();
+  c->prevLayer();
+  c->display(cout);
+
+
+
+
+
+
 }

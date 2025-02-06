@@ -9,9 +9,9 @@ int Layer::getLayerState() {
 }
 
 bool Layer::addShape(Shape* f) {
-  if (shapes.getCurrentSize() > shapes.getCap())
+  if (shapes.getQuantity() > shapes.getCap())
     return false;
-  shapes.addItem(f);
+  shapes += f;
   size++;
   return true;
 }
@@ -20,7 +20,7 @@ void Layer::removeShape(int index) {
   if (index >= size)
     return;
   size--;
-  delete shapes.removeItem(index);
+  shapes.removeItem(index);
 }
 
 double Layer::getArea() {
@@ -37,7 +37,7 @@ bool Layer::translation(int deltaX, int deltaY) {
 }
 
 bool Layer::setState(int s) {
-  if (s > 2 || s < 0)
+  if (s > 2 || s < 0) // 2 = INACTIVE, 1 = ACTIVE, 0 = INIT
     return false;
   state = s;
   return true;
