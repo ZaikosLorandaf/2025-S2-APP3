@@ -12,6 +12,7 @@ bool Layer::addShape(Shape* f) {
   if (shapes.getCurrentSize() >= shapes.getCap())
     return false;
   shapes.addItem(f);
+  sizeIndex++;
   return true;
 }
 

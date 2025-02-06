@@ -2,7 +2,6 @@
 #define __VECTEUR_H__
 
 #include "shape.h"
-#include <vector>
 
 #define INIT_VEC_SIZE 2
 
@@ -27,11 +26,11 @@ class Vector {
         vectorItem[i] = copy.vectorItem[i];
     }
 
-    T operator[] (int index) {
+    T& operator[] (int index) {
       return getItem(index);
     }
 
-    bool addItem(T &c) {
+    bool addItem(const T &c) {
       if (quantity == capacity)
         increaseSize();
       vectorItem[quantity] = c;
@@ -40,16 +39,11 @@ class Vector {
     }
 
     void increaseSize() {
-      /*T newTemp {vectorItem};*/
-      /*delete[] vectorItem;*/
-      /*vectorItem = newTemp;*/
-
       T* newTemp = new T[capacity];
       for (int i = 0; i < quantity; i++)
         newTemp[i] = vectorItem[i];
       delete[] vectorItem;
       vectorItem = newTemp;
-
     }
 
     bool emptyVector() {
@@ -65,7 +59,7 @@ class Vector {
       if (index < 0 || index > quantity)
         return T();
       T item = vectorItem[index];
-      if (index == quantity) {
+      if (index == quantity-1) {
         vectorItem[index] = T();
         return item;
       }
@@ -76,9 +70,9 @@ class Vector {
       return item;
     }
 
-    T getItem(int index) {
-    if (index < 0 || index >= quantity)
-      return T();
+    T& getItem(int index) {
+    if (index < 0 || index > quantity)
+      throw std::out_of_range("Index out of range");
     return vectorItem[index];
     }
 
