@@ -102,10 +102,10 @@ void Canevas::display(ostream & s) {
         break;
     };
 
-    if (layers[i].getIndex() == -1) {
+    if (layers[i].getSize() == 0) {
       s << "Couche: vide" << std::endl;
     } else {
-      for (int j = 0; j <= layers.getItem(i).getIndex(); j++)
+      for (int j = 0; j < layers.getItem(i).getSize(); j++)
         layers[i].getShape(j)->display(s);
     }
   }

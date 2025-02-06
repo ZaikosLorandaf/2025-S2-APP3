@@ -1,6 +1,6 @@
 #include "layer.h"
 
-Layer::Layer(): sizeIndex{-1}, state{STATE_INIT} {}
+Layer::Layer(): size{0}, state{STATE_INIT} {}
 
 Layer::~Layer() {}
 
@@ -12,15 +12,15 @@ bool Layer::addShape(Shape* f) {
   if (shapes.getCurrentSize() >= shapes.getCap())
     return false;
   shapes.addItem(f);
-  sizeIndex++;
+  size++;
   return true;
 }
 
 void Layer::removeShape(int index) {
-  if (index > sizeIndex)
+  if (index >= size)
     return;
+  size--;
   delete shapes.removeItem(index);
-  sizeIndex--;
 }
 
 double Layer::getArea() {
@@ -31,7 +31,7 @@ double Layer::getArea() {
 }
 
 bool Layer::translation(int deltaX, int deltaY) {
-  for (int i = 0; i < sizeIndex; i++)
+  for (int i = 0; i < size; i++)
     shapes[i]->moveOrigin(deltaX, deltaY);
   return true;
 }
@@ -43,21 +43,21 @@ bool Layer::setState(int s) {
   return true;
 }
 
-int Layer::getIndex() {
-  return sizeIndex;
+int Layer::getSize() {
+  return size;
 }
 
 Shape* Layer::getShape(int index) {
-  if (index > sizeIndex)
+  if (index >= size)
     return NULL;
   return shapes[index];
 }
 
 bool Layer::reset() {
-  for (int i = 0; i < sizeIndex; i++)
+  for (int i = 0; i < size; i++)
     if (shapes[i] != NULL)
       delete shapes[i];
-  sizeIndex = -1;
+  size = 0;
   state = STATE_INIT;
   return true;
 };

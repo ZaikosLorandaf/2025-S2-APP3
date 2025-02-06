@@ -13,18 +13,22 @@ class Layer {
   public:
     Layer();
     virtual ~Layer();
+
     int getLayerState();
     bool addShape(Shape* f);
     void removeShape(int index);
+
     double getArea();
     bool translation(int deltaX, int deltaY);
+
     bool setState(int s);
-    int getIndex();
+    int getSize();
     Shape* getShape(int index);
+
     bool reset();
   private:
     Vector<Shape*> shapes;
-    int sizeIndex;
+    int size;
     int state;
 };
 

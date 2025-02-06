@@ -52,7 +52,6 @@ class Vector {
       quantity = 0;
       vectorItem = new T[capacity];
       return true;
-
     }
 
     T removeItem(int index) {

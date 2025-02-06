@@ -57,6 +57,12 @@ void Tests::tests_application_cas_01()
   c->addShape(new Circle(0,1,5));
   c->addShape(new Square(1,2,6));
   c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
 
   //~~~~~~~~~~~ Step 7 ~~~~~~~~~~~//
   c->activateLayer(1);
