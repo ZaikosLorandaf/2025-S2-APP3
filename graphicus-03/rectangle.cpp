@@ -35,7 +35,7 @@ double Rectangle::area() {
   return itsLength * itsWidth;
 }
 
-void Rectangle::display(ostream &s) {
+void Rectangle::display(std::ostream &s) {
   s << "Rectangle (x=" << getAnchor().x
     << ", y=" << getAnchor().y
     << ", l=" << getLength()

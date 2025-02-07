@@ -2,6 +2,7 @@
 #define __VECTEUR_H__
 
 #include "shape.h"
+#include <sstream>
 
 #define INIT_VEC_SIZE 2
 
@@ -15,9 +16,30 @@ class Vector {
   public:
     T* vectorItem;
     // File Read
-    /*friend std::istream& operator>>(std::istream& flux, Vector<T>& vect) {}*/
+    /*friend std::istream& operator>>(std::istream& s, Vector<T>& vec) {}*/
+
     // File Write
-    /*friend std::ostream& operator<<(std::ostream& flux, Vector<T>& vect) {}*/
+    friend std::ostream& operator<<(std::ostream& s, Vector<T>& vec) {
+      for (int i = 0; i < vec.getQuantity(); i++)
+        if (vec.vectorItem[i] != nullptr)
+          s << *(vec.vectorItem[i]) << std::endl;
+      return s;
+    }
+
+    friend std::ofstream& operator<<(std::ofstream& s, Vector<T>& vec) {
+      for (int i = 0; i < vec.getQuantity(); i++)
+        if (vec.vectorItem[i] != nullptr)
+          s << *(vec.vectorItem[i]) << std::endl;
+      return s;
+    }
+
+    friend std::ostringstream& operator<<(std::ostringstream& s, Vector<T>& vec) {
+      for (int i = 0; i < vec.getQuantity(); i++)
+        if (vec.vectorItem[i] != nullptr)
+          s << *(vec.vectorItem[i]) << std::endl;
+      return s;
+    }
+
 
     Vector() {
       vectorItem = new T[capacity];
@@ -46,10 +68,6 @@ class Vector {
         return;
       activeIndex--;
     }
-
-    //TODO
-    /*void operator<< () {}*/
-    /*void operator>> () {}*/
 
     void operator+= (const T &c) {
       if (quantity == capacity)
@@ -99,9 +117,9 @@ class Vector {
     }
 
     T& getItem(int index) {
-    if (index < 0 || index > quantity)
-      throw std::out_of_range("Index out of range");
-    return vectorItem[index];
+      if (index < 0 || index > quantity)
+        throw std::out_of_range("Index out of range");
+      return vectorItem[index];
     }
 
     T& getItem() { return vectorItem[activeIndex]; }

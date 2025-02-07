@@ -103,6 +103,7 @@ bool Canevas::translation(int deltaX, int deltaY) {
 }
 
 void Canevas::display(ostream & s) {
+
   if (layers.getQuantity() == 0) {
     s << "---- Aucune Couche ----\n";
     return;
@@ -110,6 +111,7 @@ void Canevas::display(ostream & s) {
 
   for (int i = 0; i <= layers.getQuantity(); i++) {
     s << std::endl << "---- Couche " << i << " ----" << std::endl;
+
     s << "Etat: ";
     if (i != layers.getActiveIndex()) {
       switch (layers[i].getLayerState()) {
@@ -123,12 +125,14 @@ void Canevas::display(ostream & s) {
     } else
       s << "Active\n";
 
+
     if (layers[i].getSize() == 0) {
       s << "Couche: vide" << std::endl;
     } else {
       for (int j = 0; j < layers.getItem(i).getSize(); j++)
-        layers[i].getShape(j)->display(s);
+        s << layers[i].getShape(j);
     }
+
   }
 }
 

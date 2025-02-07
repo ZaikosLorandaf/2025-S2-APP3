@@ -7,6 +7,13 @@ Shape::Shape(int x1, int y1) {
 
 Shape::~Shape() {}
 
+std::ostream& operator<<(std::ostream& out, Shape* shape){
+  if (shape)
+    shape->display(out);
+  return out;
+}
+
+
 void Shape::moveOrigin(int deltaX, int deltaY) {
    anchor.x += deltaX;
    anchor.y += deltaY;

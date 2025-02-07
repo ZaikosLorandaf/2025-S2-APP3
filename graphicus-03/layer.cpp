@@ -62,3 +62,19 @@ bool Layer::reset() {
   return true;
 };
 
+void Layer::display(std::ostream& s) {
+  if (size == 0)
+    s << "Couche: Vide";
+  for (int i = 0; i < size; i++){
+    shapes[i]->display(s);
+  }
+}
+
+/*void Layer::display(std::ofstream& s) {*/
+/*  if (size == 0)*/
+/*    s << "Couche: Vide";*/
+/*  else*/
+/*    for (int i = 0; i < size; i++)*/
+/*      s << shapes;*/
+/*}*/
+/**/

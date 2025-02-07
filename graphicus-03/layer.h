@@ -26,6 +26,9 @@ class Layer {
     Shape* getShape(int index);
 
     bool reset();
+
+    void display(ostream& s);
+    void display(ofstream& s);
   private:
     Vector<Shape*> shapes;
     int size;

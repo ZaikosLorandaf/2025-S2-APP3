@@ -381,10 +381,4 @@ void Tests::tests_application_cas_03() {
   c->prevLayer();
   c->prevLayer();
   c->display(cout);
-
-
-
-
-
-
 }
