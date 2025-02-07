@@ -18,7 +18,7 @@ class Rectangle: public Shape {
 
     double area() override;
 
-    void display(ostream &s) override;
+    void display(std::ostream &s) override;
 
   private:
     int itsLength;

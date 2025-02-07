@@ -1,5 +1,4 @@
 #include "canevas.h"
-#include "layer.h"
 
 Canevas::Canevas() {}
 
@@ -7,8 +6,9 @@ Canevas::~Canevas() {
 }
 
 bool Canevas::addLayerCan() {
-  Layer* l = new Layer();
-  layers += *l;
+  /*Layer l;*/
+  Layer l = *new Layer();
+  layers += l;
   return true;
 }
 
@@ -20,6 +20,11 @@ bool Canevas::removeLayerCan(int index) {
   layers.setActiveItem(NO_LAYER_ACTIVE);
   /*activeLayer = NO_LAYER_ACTIVE;*/
   return true;
+}
+
+
+std::ostream& operator<<(std::ostream& s, Canevas& c) {
+  return s << c.layers;
 }
 
 void Canevas::nextLayer() {
@@ -125,14 +130,10 @@ void Canevas::display(ostream & s) {
     } else
       s << "Active\n";
 
-
-    if (layers[i].getSize() == 0) {
+    if (layers[i].getSize() == 0)
       s << "Couche: vide" << std::endl;
-    } else {
+    else
       for (int j = 0; j < layers.getItem(i).getSize(); j++)
-        s << layers[i].getShape(j);
-    }
-
+        s << layers[i];
   }
 }
-

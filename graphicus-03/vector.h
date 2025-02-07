@@ -2,6 +2,7 @@
 #define __VECTEUR_H__
 
 #include "shape.h"
+#include <fstream>
 #include <sstream>
 
 #define INIT_VEC_SIZE 2
@@ -15,31 +16,15 @@ class Vector {
 
   public:
     T* vectorItem;
-    // File Read
+    //~~~~~~~~~~~~~~ File Read ~~~~~~~~~~~~//
     /*friend std::istream& operator>>(std::istream& s, Vector<T>& vec) {}*/
 
-    // File Write
-    friend std::ostream& operator<<(std::ostream& s, Vector<T>& vec) {
-      for (int i = 0; i < vec.getQuantity(); i++)
-        if (vec.vectorItem[i] != nullptr)
-          s << *(vec.vectorItem[i]) << std::endl;
+    //~~~~~~~~~~~~~ File Write ~~~~~~~~~~~~//
+    friend std::ostream& operator<<(std::ostream& s, Vector<T>& v) {
+      for (int i = 0; i < v.getQuantity(); i++)
+        s << v.vectorItem[i] << std::endl;
       return s;
     }
-
-    friend std::ofstream& operator<<(std::ofstream& s, Vector<T>& vec) {
-      for (int i = 0; i < vec.getQuantity(); i++)
-        if (vec.vectorItem[i] != nullptr)
-          s << *(vec.vectorItem[i]) << std::endl;
-      return s;
-    }
-
-    friend std::ostringstream& operator<<(std::ostringstream& s, Vector<T>& vec) {
-      for (int i = 0; i < vec.getQuantity(); i++)
-        if (vec.vectorItem[i] != nullptr)
-          s << *(vec.vectorItem[i]) << std::endl;
-      return s;
-    }
-
 
     Vector() {
       vectorItem = new T[capacity];

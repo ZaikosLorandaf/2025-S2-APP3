@@ -14,7 +14,7 @@ class Circle: public Shape {
     void setRadius(int r);
 
     double area() override;
-    void display(ostream &s) override;
+    void display(std::ostream &s) override;
   private:
       int itsRadius;
       int itsX;

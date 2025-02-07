@@ -13,8 +13,8 @@
 #define CANEVAS_H
 
 #include <iostream>
-#include "shape.h"
 #include "layer.h"
+#include "shape.h"
 #include "vector.h"
 
 #define NO_LAYER_ACTIVE -1
@@ -24,8 +24,12 @@ using namespace std;
 class Canevas
 {
   public:
+    friend Shape;
+
     Canevas();
     virtual ~Canevas();
+
+    friend ostream& operator<<(ostream& s, Canevas& c);
 
     bool addLayerCan();
     bool removeLayerCan(int index);
@@ -45,6 +49,8 @@ class Canevas
     double area();
     bool translation(int deltaX, int deltaY);
     void display(ostream & s);
+
+    void saveToFile();
 
   private:
     Vector<Layer> layers;

@@ -5,7 +5,6 @@
 #define STATE_ACTIVE 1
 #define STATE_INACTIVE 2
 
-
 #include "shape.h"
 #include "vector.h"
 
@@ -14,6 +13,7 @@ class Layer {
     Layer();
     virtual ~Layer();
 
+    friend std::ostream& operator<<(std::ostream& s, Layer& l);
     int getLayerState();
     bool addShape(Shape* f);
     void removeShape(int index);
@@ -23,12 +23,11 @@ class Layer {
 
     bool setState(int s);
     int getSize();
-    Shape* getShape(int index);
+    Shape getShape(int index);
 
     bool reset();
 
-    void display(ostream& s);
-    void display(ofstream& s);
+    void display(std::ostream& s);
   private:
     Vector<Shape*> shapes;
     int size;

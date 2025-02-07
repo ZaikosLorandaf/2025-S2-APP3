@@ -11,7 +11,7 @@
 #define TESTS_H
 
 #include <iostream>
-#include "shape.h"
+#include <cassert>
 #include "canevas.h"
 #include "rectangle.h"
 #include "square.h"

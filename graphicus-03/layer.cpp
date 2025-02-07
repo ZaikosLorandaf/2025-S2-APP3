@@ -8,6 +8,14 @@ int Layer::getLayerState() {
   return state;
 }
 
+std::ostream& operator<<(std::ostream& s, Layer& l) {
+  for (int i = 0; i < l.getSize(); i++) {
+    s << "L " << l.getLayerState() << std::endl;
+    s << l;
+  }
+  return s;
+}
+
 bool Layer::addShape(Shape* f) {
   if (shapes.getQuantity() > shapes.getCap())
     return false;
@@ -47,16 +55,11 @@ int Layer::getSize() {
   return size;
 }
 
-Shape* Layer::getShape(int index) {
-  if (index >= size)
-    return NULL;
-  return shapes[index];
-}
+/*Shape Layer::getShape(int index) {*/
+/*  return shapes[index];*/
+/*}*/
 
 bool Layer::reset() {
-  for (int i = 0; i < size; i++)
-    if (shapes[i] != NULL)
-      delete shapes[i];
   size = 0;
   state = STATE_INIT;
   return true;
@@ -69,12 +72,3 @@ void Layer::display(std::ostream& s) {
     shapes[i]->display(s);
   }
 }
-
-/*void Layer::display(std::ofstream& s) {*/
-/*  if (size == 0)*/
-/*    s << "Couche: Vide";*/
-/*  else*/
-/*    for (int i = 0; i < size; i++)*/
-/*      s << shapes;*/
-/*}*/
-/**/

@@ -1,6 +1,5 @@
 #include "circle.h"
 #include <cmath>
-#include <iomanip>
 
 Circle::Circle(){}
 Circle::Circle(Coordonnee xy, int r):Shape(xy.x, xy.y) {
@@ -23,12 +22,8 @@ double Circle::area() {
   return itsRadius*itsRadius*M_PI;
 }
 
-void Circle::display(ostream &s) {
-  s << "Cercle (x=" << getAnchor().x
-    << ", y=" << getAnchor().y
-    << ", r=" << getRadius()
-    << std::fixed
-    << std::setprecision(2)
-    << ", aire=" << area()
-    << ")" << std::endl;
+void Circle::display(std::ostream &s) {
+  s << "S " << getAnchor().x << " "
+    << getAnchor().y << " "
+    << getRadius() << std::endl;
 }

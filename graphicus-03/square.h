@@ -12,6 +12,6 @@ class Square: public Rectangle {
     Square(int x, int y, int l);
     ~Square();
 
-    void display(ostream &s) override;
+    void display(std::ostream &s) override;
 };
 #endif

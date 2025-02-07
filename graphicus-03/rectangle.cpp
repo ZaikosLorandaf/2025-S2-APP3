@@ -36,10 +36,8 @@ double Rectangle::area() {
 }
 
 void Rectangle::display(std::ostream &s) {
-  s << "Rectangle (x=" << getAnchor().x
-    << ", y=" << getAnchor().y
-    << ", l=" << getLength()
-    << ", h=" << getWidth()
-    << ", aire=" << area()
-    << ")" << std::endl;
+  s << "S " << getAnchor().x << " "
+    << getAnchor().y << " "
+    << getLength() << " "
+    << getWidth() << std::endl;
 }

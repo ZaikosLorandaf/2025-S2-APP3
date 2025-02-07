@@ -1,9 +1,4 @@
 #include "tests.h"
-#include "canevas.h"
-#include "square.h"
-#include "circle.h"
-#include "rectangle.h"
-#include <cassert>
 
 void Tests::tests_unitaires_formes() {}
 void Tests::tests_unitaires_couche() {}
@@ -358,9 +353,7 @@ void Tests::tests_application_cas_02() {
 void Tests::tests_application_cas_03() {
   Canevas *c = new Canevas();
 
-  c->display(cout);
-  std::cout << "L'aire du canevas est: "
-    << c->area() << std::endl;
+  cout << c;
 
   c->addLayerCan();
   c->addLayerCan();
@@ -369,16 +362,16 @@ void Tests::tests_application_cas_03() {
 
 
   c->activateLayer(2);
-  c->display(cout);
-  std::cout << "\n\nNew something\n\n";
   c->nextLayer();
   c->nextLayer();
-  c->display(cout);
 
 
-  std::cout << "\n\nNew something 2\n\n";
   c->activateLayer(2);
   c->prevLayer();
   c->prevLayer();
-  c->display(cout);
+  c->addShape(new Rectangle(2,3,4,9));
+  c->addShape(new Circle(0,1,5));
+  c->addShape(new Square(1,2,6));
+  c->addShape(new Rectangle(2,3,4,9));
+  cout << c;
 }
