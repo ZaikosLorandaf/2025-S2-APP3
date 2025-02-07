@@ -24,7 +24,8 @@ bool Canevas::removeLayerCan(int index) {
 
 
 std::ostream& operator<<(std::ostream& s, Canevas& c) {
-  return s << &c.layers;
+  s << &c.layers;
+  return s;
 }
 
 void Canevas::nextLayer() {

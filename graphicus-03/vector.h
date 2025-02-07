@@ -22,7 +22,7 @@ class Vector {
     //~~~~~~~~~~~~~ File Write ~~~~~~~~~~~~//
     friend std::ostream& operator<<(std::ostream& s, const Vector<T>& v) {
       for (int i = 0; i < v.getQuantity(); i++)
-        s << *v.vectorItem[i] << std::endl;
+        s << v.vectorItem[i] << std::endl;
       return s;
     }
 
