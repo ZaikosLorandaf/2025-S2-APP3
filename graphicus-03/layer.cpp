@@ -8,10 +8,10 @@ int Layer::getLayerState() {
   return state;
 }
 
-std::ostream& operator<<(std::ostream& s, Layer& l) {
+std::ostream& operator<<(std::ostream& s, Layer l) {
   for (int i = 0; i < l.getSize(); i++) {
     s << "L " << l.getLayerState() << std::endl;
-    s << l;
+    s << &l;
   }
   return s;
 }
@@ -54,10 +54,6 @@ bool Layer::setState(int s) {
 int Layer::getSize() {
   return size;
 }
-
-/*Shape Layer::getShape(int index) {*/
-/*  return shapes[index];*/
-/*}*/
 
 bool Layer::reset() {
   size = 0;

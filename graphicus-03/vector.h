@@ -20,9 +20,9 @@ class Vector {
     /*friend std::istream& operator>>(std::istream& s, Vector<T>& vec) {}*/
 
     //~~~~~~~~~~~~~ File Write ~~~~~~~~~~~~//
-    friend std::ostream& operator<<(std::ostream& s, Vector<T>& v) {
+    friend std::ostream& operator<<(std::ostream& s, const Vector<T>& v) {
       for (int i = 0; i < v.getQuantity(); i++)
-        s << v.vectorItem[i] << std::endl;
+        s << *v.vectorItem[i] << std::endl;
       return s;
     }
 
@@ -31,7 +31,7 @@ class Vector {
     }
 
     virtual ~Vector() {
-      /*delete vectorItem;*/
+      delete[] vectorItem;
     }
 
     Vector(const Vector<T>& copy): capacity{copy.capacity}, quantity{copy.quantity} {
@@ -61,20 +61,12 @@ class Vector {
       quantity++;
     }
 
-    /*bool addItem(const T &c) {*/
-    /*  if (quantity == capacity)*/
-    /*    increaseSize();*/
-    /*  vectorItem[quantity] = c;*/
-    /*  quantity++;*/
-    /*  return true;*/
-    /*}*/
-
     void increaseSize() {
       capacity *= 2;
       T* newTemp = new T[capacity];
       for (int i = 0; i < quantity; i++)
         newTemp[i] = vectorItem[i];
-      /*delete[] vectorItem;*/
+      delete[] vectorItem;
       vectorItem = newTemp;
     }
 
@@ -107,7 +99,7 @@ class Vector {
       return vectorItem[index];
     }
 
-    T& getItem() { return vectorItem[activeIndex]; }
+    T getItem() { return vectorItem[activeIndex]; }
 
 
     void setActiveItem(int i) { activeIndex = i; }

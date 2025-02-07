@@ -50,10 +50,8 @@ class Canevas
     bool translation(int deltaX, int deltaY);
     void display(ostream & s);
 
-    void saveToFile();
-
   private:
-    Vector<Layer> layers;
+    Vector<Layer*> layers;
     /*int activeLayer;*/
 };
 
